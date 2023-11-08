@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
+
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* changes the 1REM from 16px to 10px */
+  font-size: 62.5%;
+  transition: all .5s ease-in;
+}
+
+html.dark {
+  --primary-color: #fff;
+  --secondary-color: #333;
+}
+
+html.dark {
+  background-color: #111;
+  color: var(--primary-color);
+}
+
+
+body {
+
+  font-family: "Heebo", sans-serif;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.toggle-mode {
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  top: 90px;
+}
+
+.toggle-mode:focus,
+.toggle-mode:focus-visible {
+  outline: none;
+}
+
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clock-container .clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.clock .needle {
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 65px;
+  width: 3px;
+  transform-origin: bottom center;
+  transition: all .5s ease-in;
+}
+
+.needle.hour {
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.needle.minute {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+}
+
+.needle.second {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+  background-color: #e74c3c;
+}
+
+.clock .center-point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: #e74c3c;
+  height: 10px;
+  width: 10px;
+  /* transition: all .5s ease-in; */
+}
+
+.clock .center-point::after {
+  content: "";
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  height: 5px;
+  width: 5px;
+  transition: all .5s ease-in;
+}
+
+.time {
+  font-size: 64px;
+  letter-spacing: 4px;
+}
+
+.date {
+  color: #999;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.date .day {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: 12px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .5s ease-in;
+  font-weight: bold;
+}
